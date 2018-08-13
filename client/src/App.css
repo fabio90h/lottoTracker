@@ -1,0 +1,223 @@
+html{
+    background-color: #f6f9fc;
+}
+nav{
+    background-color: rgb(59, 59, 241);
+}
+.landingPage{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+}
+    .landingPage > h1{
+        text-align: center;
+    }
+    #rules{
+        background-color: #e9ecef;
+        align-self: center;
+        max-width: 80%;
+        margin: 20px;
+        padding: 40px 30px;
+        /* border: 2px solid red;        */
+    }
+    #landingContents{
+        display: flex;
+    }
+        .row{
+            /* border: 2px solid red; */
+            padding: 20px;
+        }
+            .card{
+                max-width: 400px;
+            }
+            .card-body{
+                max-height: 420px;
+            }
+.addOrFreeButtons{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+}
+.lottoTitle{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* border: 2px solid red; */
+}
+    .lottoTitle > h1{
+        margin-bottom: 0px;
+        /* border: 2px solid red; */
+        width: 100%;
+    }
+    .lottoTitle > p{
+        margin-top: 0px;
+        /* border: 2px solid red; */
+        width: 100%;
+    }
+.main-section{
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid orange; */
+    width: 100%;
+}
+    .participantsList{
+        margin-top: 15px;
+        margin-left: 15px;
+        width: 20%;
+        padding-bottom: 10px;
+        text-align: center;
+        max-height: 745px;
+        overflow-y: scroll;
+    }
+        .redOn{
+            /* Individuals Participant in the list */
+            /* border: 1px solid black; */
+            color: white;
+            background-color: red;
+            width: 100%;
+            margin-bottom: 8px;
+            box-shadow: 0 50px 100px rgba(50,50,93,.05), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1); 
+        }
+            .redOn > a{ 
+                /* Size of the name */
+                color: white;
+                font-size: 1.5em;
+            }
+        .warning{
+            /* Individuals Participant in the list */
+            /* border: 1px solid black; */
+            background-color: darkorange;
+            color: lightgoldenrodyellow;
+            width: 100%;
+            margin-bottom: 8px;
+            box-shadow: 0 50px 100px rgba(50,50,93,.05), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1);             
+        }
+            .warning > a{ 
+                /* Size of the name */
+                color: lightgoldenrodyellow;
+                font-size: 1.5em;
+            }
+        .greenOn{
+            /* Individuals Participant in the list */
+            /* border: 1px solid black; */
+            background-color: rgba(63, 163, 63, 0.993);
+            color: white;
+            width: 100%;
+            margin-bottom: 8px;
+            box-shadow: 0 50px 100px rgba(50,50,93,.05), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1);             
+        }
+            .greenOn > a{ 
+                /* Size of the name */
+                color: white;
+                font-size: 1.5em;
+            }
+        .selected{
+            /* Individuals Participant in the list */
+            /* border: 1px solid black; */
+            background-color: lightblue;
+            color: darkblue;
+            margin-bottom: 8px;
+            box-shadow: 0 50px 100px rgba(50,50,93,.05), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1);             
+        }
+            .selected > a{ 
+                /* Size of the name */
+                color: darkblue;
+                font-size: 1.5em;
+            }
+    #participantsInfo{
+        width: 80%;
+        /* border: 1px solid green; */
+        margin: 10px;
+    }
+        .winsResults{
+            display: flex;
+            flex-direction: row;
+            margin: 5px;
+        }
+            .winsPic{
+                width: 60%;
+                display: flex;
+                flex-direction: column;
+                /* border: 2px solid red; */
+            }
+                img{
+                    /* border: 2px solid blue; */
+                    /* box-shadow: 0 50px 100px rgba(50,50,93,.05), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1);  */
+                    margin-bottom: 8px;
+                    object-fit: contain;
+                }
+            .winsTable{
+                width: 35%;
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                /* border: 2px solid green; */
+                box-shadow: 0 50px 100px rgba(50,50,93,.05), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1); 
+                text-align: center;
+                max-height: 745px;
+                overflow-x: scroll;
+                padding: 5px;
+                margin-left: 20px;
+            }
+                .winsTotal{
+                    font-size: 2em;
+                }
+                    .win{
+                        /* border: 2px solid red; */
+                    }
+                
+
+        #participantsInfoButton{
+            display: flex;
+            flex-direction: row;
+        }
+        #paymentHistory{
+            width: 60%;
+            box-shadow: 0 50px 100px rgba(50,50,93,.05), 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1);             
+            /* border: 2px solid black; */
+            text-align: center;
+            padding: 10px;
+        }
+            #paymentHistory > h5{
+                /* margin: px; */
+            }
+            .indivPayment{
+                /* border: 1px solid red; */
+            }
+/* SIZE CHANGES */
+@media (max-width: 790px) {
+    .main-section{
+        flex-direction: column;
+    }
+        .participantsList{
+            /* border: 2px solid red; */
+            width: 80%;
+            padding-right: 15px;
+            max-height: 300px;
+            margin: auto;
+            overflow-y: scroll;
+        }
+            .redOn, .warning, .greenOn, .selected{
+                width: 60%;
+                margin: 10px auto;
+            }
+        #participantsInfo{
+            width: 100%;
+        }
+            #paymentHistory{
+                margin: auto;
+                max-height: 300px;
+            }
+            .winsResults{
+                flex-direction: column-reverse;
+            }
+                .winsPic{
+                    width: 100%;
+                    margin: auto;
+                }
+                .winsTable{
+                    width: 80%;
+                    max-height: 300px;
+                    margin: auto;
+                }
+}
