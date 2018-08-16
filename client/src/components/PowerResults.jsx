@@ -27,8 +27,8 @@ class PowerResults extends Component {
                     <div className='winsTotal'>Total Won: ${totalWon}</div>
                     <div className='win'>
                         {
-                            wins.powerWin.map(({ winDate, winAmount }, index) => {
-                                return <li key={`${winDate}${index}`}>{winDate}: &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;{winAmount}</li>})
+                            wins.powerWin.reverse().map(({ winDate, winAmount }, index) => {
+                                return <li key={`${winDate}${index}`}>{winDate}: &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;${winAmount}</li>})
                         }
                     </div>
                 </div>
