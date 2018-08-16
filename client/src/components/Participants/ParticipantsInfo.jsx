@@ -34,7 +34,7 @@ class ParticipantsInfo extends Component {
                     {this.props.user ? 
                         <div id='participantsInfoButton'>
                             <ParticipantRemove />
-                            <ParticipantPaidAdd onSubmit={() => addPaid({...participantsPaidValue.values, ...info, currentMonday})}/> 
+                            <ParticipantPaidAdd onSubmit={() => addPaid({...participantsPaidValue.values, ...info, currentMonday, page})}/> 
                         </div>
                     : null}
                     <div id='paymentHistory'>

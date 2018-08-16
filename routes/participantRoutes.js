@@ -60,6 +60,7 @@ module.exports = (app) => {
         }
         const moneyWon = freeAmount/participants.length;
         const emails = [];
+        const subject = isMega === 'mega' ? `Mega Millions ${freeOrSkip} Lotto Credit(s)` : `Powerball ${freeOrSkip} Lotto Credit(s)`
         participants
             .forEach( async ({ credit, email, _id }) => {
                 const newCredit = credit + (moneyWon/2);
@@ -68,7 +69,7 @@ module.exports = (app) => {
                 emails.push({ email });
                 await Participants.update({_id}, {$push: {payments: { paidDate: `${dateFree} - ${freeOrSkip}`, paidAmount: moneyWon }}, dueDate: newDueDate, credit: newCredit })
             })
-        const content = {recipients: emails, paidAmount: freeAmount, paidDate: dateFree, subject: `${freeOrSkip} Lotto`}
+        const content = {recipients: emails, paidAmount: freeAmount, isMega, paidDate: dateFree, subject}
         const mailer = freeOrSkip.toUpperCase() === 'FREE' ? new Mailer(content, freeTemplate(content)) 
             : freeOrSkip.toUpperCase() === 'SKIP' ? new Mailer(content, skipTemplate(content)) : null
         try{
@@ -84,13 +85,14 @@ module.exports = (app) => {
 
     //Adding Paid (individual)
     app.post('/api/paid_amount', requireLogin, async (req, res) => {
-        const { paidAmount, paidDate, _id, email, name, credit, dueDate, currentMonday } = req.body;
+        const { paidAmount, paidDate, _id, email, name, credit, dueDate, currentMonday, page } = req.body;
 
         const newCredit = credit + (paidAmount/2);
         const result = new Date(currentMonday);
         const newDueDate = new Date(result.setDate(result.getDate() + (newCredit * 7))).toLocaleDateString('en-US');
 
-        const content = {recipients: [{ email }], name, paidAmount, paidDate, newDueDate, newCredit, subject: 'Lotto Receipt'}
+        const subject = page === 'mega' ? "Mega Million Lotto Receipt" : "Powerball Lotto Receipt";
+        const content = {recipients: [{ email }], name, paidAmount, paidDate, newDueDate, newCredit, page, subject: 'Lotto Receipt'}
         await Participants.update({_id}, {$push: {payments: { paidDate, paidAmount }}, dueDate: newDueDate, credit: newCredit })
         const mailer = new Mailer(content, receiptTemplate(content))
         try{

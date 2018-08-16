@@ -233,10 +233,12 @@ const updateCredits = async () => {
           }
           await Participants.update({_id}, {credit: creditLeft})
      })
-     const warningContent = {recipients: warningGroup, subject: `Lotto Due Next Week`}
+     //Get only unique email set
+     const uniqueArray = a => [...new Set(a.map(o => JSON.stringify(o)))].map(s => JSON.parse(s))
+     const warningContent = {recipients: uniqueArray(warningGroup), subject: `Lotto Due Next Week`}
      const warningMailer = new Mailer(warningContent, warningTemplate(warningContent))
      
-     const redContent = {recipients: redGroup, subject: `Lotto is due`}
+     const redContent = {recipients: uniqueArray(redGroup), subject: `Lotto is due`}
      const redMailer = new Mailer(redContent, redTemplate(redContent))
         try{
             if (warningGroup.length !== 0){
