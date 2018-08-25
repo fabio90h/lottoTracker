@@ -144,6 +144,7 @@ const scrapeForLotto = () => {
         //Take screenshot of winnings
         console.log('Going Screenshots...')
         await page.screenshot({path: './client/src/components/img/Lotto1.png', clip: { x: 10, y: 300, width: 500, height: 180 }}); //power 10 & 300
+        await page.waitFor(2*1000);
         await page.screenshot({path: './client/src/components/img/Lotto2.png', clip: { x: 10, y: 490, width: 500, height: 180 }}); //mega 490
       
         await cloudinary.v2.uploader.upload("./client/src/components/img/Lotto1.png", 
